@@ -1,13 +1,19 @@
-function QuestionCard() {
-    return (
-        <div className="QuestionCard">
-            <p>Qu'est ce que react ?</p>
-            <ul>
-                <li>Un frameWork</li>
-                <li>Un language</li>
-                <li>Une Bibliothèque</li>
-            </ul>
-        </div>
-    )
+function QuestionCard({Question, response, update}) {
+  return (
+    <div className="QuestionCard">
+      <p>{Question}</p>
+      <ul>
+
+        {Object.keys(response).map((resp) => (
+          <li>
+            <input type="checkbox" name="" id="" onChange={(e)=>{
+                update(Question, resp)
+            }} />
+            {resp}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
-export default QuestionCard
+export default QuestionCard;
