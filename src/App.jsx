@@ -36,36 +36,40 @@ let Quiz = {
      }
     },
     {question : "Qu'est ce que NodesJS",
-     response : {
-         "un language" : false,
-         "Environnement de developpement" : true,
-         "une chaine de caratère": false
-     }
+    response : {
+      "un language" : false,
+      "Environnement de developpement" : true,
+      "une chaine de caratère": false
     }
-  ],
-  Points : 5
+  }
+],
+Points : 5,
+Time : 5
 }
 function App() {
+  
+  function submitQuiz(){
+    console.log('Quiz terminer')
+  }
   
   const [answers, setAnswers] = useState({})
   useEffect(()=>{
     console.log(answers)
   },[answers])
   const [count, setCount] = useState(0);
-
+  
   function UpdateAnswers(Question,response){
       answers[Question] = response
       setAnswers({...answers})
   }
   return (
     <>
-      <Chrono />
+      <Chrono Time={Quiz.Time} submit={submitQuiz()}/>
         <div className="QuestionCard">
-             {
-                  
-               Quiz.Questions.map((ele)=> (
+             { 
+               Quiz.Questions.map((ele, i)=> (
 
-                 <QuestionCard Question={ele.question} response={ele.response} update={UpdateAnswers}/>
+                 <QuestionCard  key={i} Question={ele.question} response={ele.response} update={UpdateAnswers} usersresponse={answers[ele.question]} />
                )
                 
                 )
@@ -74,5 +78,4 @@ function App() {
     </>
   );
 }
-
 export default App;
