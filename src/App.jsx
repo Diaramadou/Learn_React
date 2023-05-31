@@ -77,22 +77,36 @@ function App() {
     for(const count in answers){
 
 // Nos reponse Juste ......
-    let result = answers[count].join(" ")
+    let result = answers[count]
 
     // Les  Objet des questions auquel l'utilisateur à repondu ......
     let findQuestion = Quiz.Questions.find((item)=> item.question === count)
     
     // filter les reponses qui sont "true" dans les question (findQuestion).........
-    let response = Object.entries(findQuestion.response).filter((ele)=> ele[1]).map((lem)=> lem[0]).join(" ")
-      
+    let response = Object.entries(findQuestion.response).filter((ele)=> ele[1]).map((lem)=> lem[0])
+    
+    
+      let pointByResponse = 1/result.length;
+      let countUserResponse = 0;
 
-    // Si les reponse correspondes aux reponse de l'utilisateur
-    if(result == response){
-      compteur+=1
-     }
-     
+    // Verifier si les reponse vrai de l'utilisateur sont inclurent dans tableau de bonne reponse
+    response.forEach(elem => {
+          if(result.includes(elem)){
+            countUserResponse += pointByResponse
+          }else{
+
+            // verifie si countUserResponse n'es pas 0
+              if(countUserResponse > 0){
+                countUserResponse -= pointByResponse
+              }
+          }
+          console.log(countUserResponse)
+          compteur += countUserResponse
+    });
+    
+
     }
-    console.log(compteur)
+    
     setResult({
       responseTotal: compteur,
       percent :  (compteur*100)/Quiz.Questions.length,
