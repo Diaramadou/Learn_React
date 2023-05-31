@@ -8,15 +8,13 @@ function QuestionCard({Question, response, update, usersresponse}) {
           <li key={i}>
             <input type="checkbox" onChange={(e)=>{
                 if (e.target.checked){
-                  usersresponse = usersresponse ? [...usersresponse, resp] : resp
+                  usersresponse = usersresponse ? [...usersresponse, resp] : [resp]
                 }else{
                   if (usersresponse.includes(resp)){
-                      usersresponse = usersresponse.filter((item)=> item != resp)
+                      usersresponse = usersresponse?.filter((item)=> item != resp)
                   }
                 }
-
-                update(Question, resp, usersresponse)
-              
+                update(Question,usersresponse)
               }}/>
             {resp}
           </li>
@@ -25,4 +23,5 @@ function QuestionCard({Question, response, update, usersresponse}) {
     </div>
   );
 }
+
 export default QuestionCard;
