@@ -44,7 +44,7 @@ let Quiz = {
   }
 ],
 Points : 5,
-time : 15
+time : 7
 }
 
 
@@ -73,20 +73,22 @@ function App() {
   function getResults(){
     // Compteur des questions 
     let compteur = 0;
-    
+    console.log("answers",answers)
+
     for(const count in answers){
 
-// Nos reponse Juste ......
+// Nos reponse de l'utilsateur ......
     let result = answers[count]
-
-    // Les  Objet des questions auquel l'utilisateur à repondu ......
+      console.log('Mes reponse justes', result)
+    // L'objet questions auquel l'utilisateur à repondu ......
     let findQuestion = Quiz.Questions.find((item)=> item.question === count)
-    
+    console.log('les questions' , findQuestion)
     // filter les reponses qui sont "true" dans les question (findQuestion).........
     let response = Object.entries(findQuestion.response).filter((ele)=> ele[1]).map((lem)=> lem[0])
-    
-    
-      let pointByResponse = 1/result.length;
+      console.log("Les reponse justes", response)
+
+      let pointByResponse = 1 / Quiz.Questions.length;
+
       let countUserResponse = 0;
 
     // Verifier si les reponse vrai de l'utilisateur sont inclurent dans tableau de bonne reponse
@@ -94,23 +96,23 @@ function App() {
           if(result.includes(elem)){
             countUserResponse += pointByResponse
           }else{
-
             // verifie si countUserResponse n'es pas 0
-              if(countUserResponse > 0){
+              if(countUserResponse < 0){
                 countUserResponse -= pointByResponse
               }
           }
-          console.log(countUserResponse)
+        
           compteur += countUserResponse
+          console.log("compteur", countUserResponse)
     });
     
 
     }
     
     setResult({
-      responseTotal: compteur,
-      percent :  (compteur*100)/Quiz.Questions.length,
-      point : (compteur*Quiz.Points)/Quiz.Questions.length
+      responseTotal: Math.ceil(compteur*Quiz.Questions.length),
+      percent :  (Math.ceil(compteur*Quiz.Questions.length)*100)/Quiz.Questions.length,
+      point : (Math.ceil(compteur*Quiz.Questions.length)*Quiz.Points)/Quiz.Questions.length
     })
   }
   
