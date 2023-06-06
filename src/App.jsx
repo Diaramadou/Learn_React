@@ -49,7 +49,7 @@ let Quiz = {
     },
   ],
   Points: 5,
-  time: 300,
+  time: 10,
 };
 
 function App() {
@@ -69,16 +69,30 @@ function App() {
   const [Time, setTime] = useState(0);
 
   useEffect(() => {
+    // Sesion pour le temps
     let endTime = sessionStorage.getItem("endTime");
     if (endTime) {
       setStatesQuiz(true);
       setTime(parseInt((endTime - new Date().getTime()) / 1000));
     }
+
+// Session pour les questions
+    let answers = sessionStorage.getItem("Answers");
+
+    console.log('Answers SessionStorage', JSON.parse(answers))
+      if (answers) {
+        setAnswers(JSON.parse(answers))
+      }
+
   }, []);
 
   function UpdateAnswers(Question, response) {
+
     answers[Question] = response;
+    
+    sessionStorage.setItem("Answers", JSON.stringify(answers))
     setAnswers({ ...answers });
+
   }
 
   function getResults() {

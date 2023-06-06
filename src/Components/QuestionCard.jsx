@@ -6,7 +6,7 @@ function QuestionCard({Question, response, update, usersresponse}) {
 
         {Object.keys(response).map((resp, i) => (
           <li key={i}>
-            <input type="checkbox" onChange={(e)=>{
+            <input type="checkbox" checked={usersresponse?.includes(resp)} onChange={(e)=>{
                 if (e.target.checked){
                   usersresponse = usersresponse ? [...usersresponse, resp] : [resp]
                 }else{
