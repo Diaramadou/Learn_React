@@ -1,0 +1,30 @@
+[
+  {
+    "_id": "648119cfc1e51cdd52f6cbec",
+    "name": "kuroko ",
+    "lastname": "basket",
+    "telephone": 2023,
+    "email": "kuroko.dm@gmail.com",
+    "password": "lefbzeombfzmoebflzomrbef",
+    "__v": 0
+  },
+  {
+    "_id": "648179dd2198f09414fa07f9",
+    "name": "Tetsuya kuroko",
+    "lastname": "vampire",
+    "telephone": 2017,
+    "email": "seirin.dm@gmail.com",
+    "password": "kuroko",
+    "__v": 0
+  },
+  {
+    "_id": "64817a112198f09414fa07fb",
+    "name": "Midorima",
+    "lastname": "Shintaru",
+    "telephone": 2017,
+    "email": "sutoku.dm@gmail.com",
+    "password": "Midorima",
+    "__v": 0
+  },
+  { "name": "diara", "lastname": "madou", "telephone": "123456789" }
+]
