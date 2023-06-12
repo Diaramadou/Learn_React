@@ -1,5 +1,7 @@
+import { useNavigate } from "react-router-dom";
 
 function Register() {
+  const navigate = useNavigate()
   function submitForm(e) {
     e.preventDefault();
     let data = Object.fromEntries(new FormData(e.target));
@@ -9,6 +11,7 @@ function Register() {
       body: JSON.stringify(data),
     }).then(res=> res.text())
     .then(response=> console.log(response))
+   .then(()=> navigate("/login"))
   }
 
   return (
