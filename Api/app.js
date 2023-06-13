@@ -1,6 +1,7 @@
 import Http from 'http'
 import fs from 'fs'
 import path from 'path'
+import { error } from 'console'
 
 const server = Http.createServer((req, res)=>{
    console.log(req.url, req.method)
@@ -48,16 +49,18 @@ if (req.url === '/api/auth/login' && req.method === 'POST') {
     let oldData = fs.readFileSync(path.join("Api","data","user.json"), {'encoding': "utf-8"})
 
     oldData = JSON.parse(oldData)
-    console.log("nlnfnglkdfnglkd",oldData)
+
     let donne = oldData.find((user)=> user.email == body.email && user.password === body.password)
     
-
-    if (donne) {
-        return res.end("CONNECTE")
+    if(donne){
+    
+      return res.end(donne.email)
+    
     }else{
-      return res.end("DECONNECTÉ")
-    }
-
+    
+      return res.end("error")
+    
+    } 
    
 
   })

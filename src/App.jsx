@@ -49,7 +49,7 @@ let Quiz = {
     },
   ],
   Points: 5,
-  time: 10,
+  time: 16,
 };
 
 function App() {
@@ -79,7 +79,7 @@ function App() {
 // Session pour les questions
     let answers = sessionStorage.getItem("Answers");
 
-    console.log('Answers SessionStorage', JSON.parse(answers))
+    // console.log('Answers SessionStorage', JSON.parse(answers))
       if (answers) {
         setAnswers(JSON.parse(answers))
       }
@@ -87,15 +87,12 @@ function App() {
   }, []);
 
   function UpdateAnswers(Question, response) {
-
     answers[Question] = response;
-    
     sessionStorage.setItem("Answers", JSON.stringify(answers))
     setAnswers({ ...answers });
-
   }
 
-  function getResults() {
+  function getResults(){
     // Compteur des questions
     let compteur = 0;
     console.log("answers", answers);

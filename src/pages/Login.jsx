@@ -13,10 +13,13 @@ function Login(){
         )
         .then(res=> res.text())
         .then(resp=>{
-                
-            console.log(resp)
-                if (resp === "CONNECTE") {
-                    navigate('/Quiz')
+             
+                if(resp === "error"){
+                     alert("Error")
+                }else{
+
+                     localStorage.setItem('sessionUser', JSON.stringify(resp))
+                     navigate('/Quiz')
                 }
         })
     }
