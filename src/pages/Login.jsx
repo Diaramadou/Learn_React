@@ -18,7 +18,7 @@ function Login(){
                      alert("Error")
                 }else{
 
-                     localStorage.setItem('sessionUser', JSON.stringify(resp))
+                     localStorage.setItem('user', JSON.stringify(resp))
                      navigate('/Quiz')
                 }
         })

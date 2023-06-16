@@ -8,13 +8,9 @@ import {BrowserRouter, Route,Routes} from 'react-router-dom'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-      <BrowserRouter>
-            <Routes>
-              <Route path='/' element={<Register/>}/>
-                  <Route path='/Quiz' element={<App/>}/>
-                  <Route path='/Login' element={<Login/>}/>
-            </Routes>
-      </BrowserRouter>
-  </React.StrictMode>
+      <React.StrictMode>
+        <BrowserRouter>
+              <App/>
+        </BrowserRouter>
+      </React.StrictMode>
 )
