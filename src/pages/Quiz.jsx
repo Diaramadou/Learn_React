@@ -23,20 +23,26 @@ function Quiz() {
   // State
   const [Time, setTime] = useState(0);
 
+ function fetchData(){
+    fetch("http://localhost:4000/api/quiz")
+    .then((resq)=> resq.json())
+    .then((result)=> console.log(result))
+  }
+
   useEffect(() => {
     // Sesion pour le temps
     let endTime = sessionStorage.getItem("endTime");
+    // Session pour les questions
+       let answers = sessionStorage.getItem("Answers");
     if (endTime) {
       setStatesQuiz(true);
       setTime(parseInt((endTime - new Date().getTime()) / 1000));
     }
-
-// Session pour les questions
-    let answers = sessionStorage.getItem("Answers");
-
+    fetchData()
     // console.log('Answers SessionStorage', JSON.parse(answers))
       if (answers) {
         setAnswers(JSON.parse(answers))
+       
       }
 
   }, []);

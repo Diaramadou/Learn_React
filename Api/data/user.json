@@ -34,5 +34,11 @@
     "prenom": "mahama",
     "email": "couda.dm1@gmail.com",
     "password": "1234"
+  },
+  {
+    "name": "couda",
+    "prenom": "Mamadou",
+    "email": "couda.dm@gmail.com",
+    "password": "aaaa"
   }
 ]

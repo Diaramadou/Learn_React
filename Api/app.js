@@ -1,13 +1,13 @@
 import Http from "http";
 import fs from "fs";
 import path from "path";
-import { error } from "console";
 
 const server = Http.createServer((req, res) => {
   console.log(req.url, req.method);
   // res.end("ok")
   res.setHeader("Access-Control-Allow-Origin", "*");
-  if (req.url === "/api/auth/register" && req.method === "POST") {
+  // res.setHeader("Content-Type","application/json")
+  if (req.url === "/api/auth/register" && req.method === "POST"){
     let body = "";
     req.on("data", (chunck) => {
       body += chunck;
@@ -61,7 +61,10 @@ const server = Http.createServer((req, res) => {
   }
 
   if (req.url == "/api/quiz" && req.method == "GET") {
-      
+      let QuizData = fs.readFileSync(path.join("Api", "data", "quiz.json"), {
+        encoding: "utf-8",
+      })
+      res.end(QuizData)
   }
 });
 
