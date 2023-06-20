@@ -13,7 +13,6 @@ function Login(){
         )
         .then(res=> res.text())
         .then(resp=>{
-             
                 if(resp === "error"){
                      alert("Error")
                 }else{

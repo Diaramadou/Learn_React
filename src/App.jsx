@@ -1,5 +1,5 @@
 import { Routes, Route, useNavigate } from "react-router-dom"
-import Login from "./pages/login"
+import Login from "./pages/Login"
 import Register from "./pages/Register"
 import Quiz from "./pages/Quiz"
 import { useEffect } from "react"
