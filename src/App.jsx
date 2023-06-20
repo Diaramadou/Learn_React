@@ -1,8 +1,9 @@
 import { Routes, Route, useNavigate } from "react-router-dom"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
-import Quiz from "./pages/Quiz"
+import Quiz from "./pages/QUiz"
 import { useEffect } from "react"
+import Quizzes from "./pages/Quizzes"
 
 
 
@@ -24,6 +25,7 @@ function App() {
               <Route path="/" element={<Register/>}/>
               <Route path="/login" element={<Login/>}/>
               <Route path="/Quiz" element={<Quiz/>}/>
+              <Route path="/Quizzes" element={<Quizzes/>}/>
         </Routes>
 
       </>

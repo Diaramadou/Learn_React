@@ -23,7 +23,7 @@ function Quiz() {
   // State
   const [Time, setTime] = useState(0);
 
- function fetchData(){
+  function fetchData(){
     fetch("http://localhost:4000/api/quiz")
     .then((resq)=> resq.json())
     .then((result)=> console.log(result))
